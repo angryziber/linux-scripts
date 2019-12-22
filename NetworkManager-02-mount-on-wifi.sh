@@ -1,9 +1,11 @@
 #!/bin/bash
 # Mounts NAS filesystem when correct Wifi network is detected
 # Copy to /etc/NetworkManager/dispatcher.d
-# This script should be owned by root:root, and cannot be a symlink
+# This script should be owned by root:root and be executable, and cannot be a symlink
+# Use something like this in /etc/fstab:
+# //nas.local/rootlink/volume1	/mnt/nas	cifs	noauto,user=*,password=*,uid=*,gid=users,soft,file_mode=0640,dir_mode=0750	0	0
 
-LOGFILE="/var/log/nm-applet.log"
+LOGFILE="/var/log/nm-mount.log"
 
 IF=${1}
 COMMAND=${2}
