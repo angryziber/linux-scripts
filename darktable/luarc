@@ -1,0 +1,5 @@
+-- Backup db on exit: https://github.com/theres/dt_backup
+require 'backup'
+
+-- Group images by time: https://github.com/darktable-org/lua-scripts/blob/master/contrib/AutoGrouper.lua
+require 'AutoGrouper'
