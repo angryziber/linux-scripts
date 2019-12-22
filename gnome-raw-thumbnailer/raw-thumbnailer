@@ -1,0 +1,11 @@
+#!/bin/bash
+# Simple RAW photo (CR2/NEF/etc) thumbnailer for Gnome Files / Nautilus
+# Copy to /bin - symlinks will not work as thumbnailers are now run inside of bwrap sandbox
+# Install exiftool and image-magick
+# TODO: rotations, black bars
+
+INPUT=$1
+OUTPUT=$2
+SIZE=$3
+# use -PreviewImage to get a slower, but high quality thumbnail
+exiftool -ThumbnailImage -b $INPUT | convert-im6.q16hdri -resize "${SIZE}x${SIZE}>" jpg:- $OUTPUT
